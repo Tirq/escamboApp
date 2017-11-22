@@ -1,0 +1,47 @@
+<% model= @admins.model_name.human(count: 2) %>
+<%= render partial: 'layouts/shared_backoffice/notifications', :locals => {:title => model}   %>
+<%= link_to new_backoffice_admin_path, disabled: !policy(@admins).new? , style: "margin: 5px;", title: 'Novo' ,	class: "btn btn-success pull-right" do %>
+		<i class="fa fa-plus"></i>
+<% end %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<%= t('messages.listing', model: model) %>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th width="10%"><%= t('messages.actions') %></th>
+					<th>#</th>
+					<th><%= Admin.human_attribute_name('name') %></th>
+					<th><%= Admin.human_attribute_name('email') %></th>
+					<th><%= Admin.human_attribute_name('role') %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @admins.each do |adm| %>
+				<tr>
+					<td width="10%">
+						<%= link_to edit_backoffice_admin_path(adm) , class:"btn btn-primary btn-xs", title: t('messages.edit') do %>
+							<i class="fa fa-edit"></i>
+						<% end %>
+
+						<% if policy(adm).destroy? %>
+							<%= link_to backoffice_admin_path(adm), method: :delete, data: { confirm: t('messages.confirm_with', item: adm.name) }, class: "btn btn-danger btn-xs", title: t('messages.remove') do %>
+							  <i class="fa fa-times"></i>								   
+							<% end %>
+						<% else %>
+							<button type="button" disabled="disabled" class="btn btn-danger btn-xs"><i class="fa fa-times"></i>
+						</button>	
+						<% end %>
+					</td>
+					<td><%= adm.id %></td>
+					<td><%= adm.name %></td>
+					<td><%= adm.email %></td>
+					<td><%= adm.role_i18n %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
