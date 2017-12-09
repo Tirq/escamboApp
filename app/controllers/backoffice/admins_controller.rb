@@ -26,18 +26,21 @@ class Backoffice::AdminsController < Backoffice::BackofficeController
 	end
 
 	def create
+		@admin = Admin.new
 		@admin = Admin.new(params_admin)
 		if @admin.save
 			redirect_to backoffice_admins_path , notice: I18n.t('messages.destroyed_with', item: @admin.email)  
 		else
 			render :new
-		end	
+		end
+
 	end
 
 	def update
 	  resolve_passwords
 		if @admin.update(params_admin)
 			redirect_to backoffice_admins_path, notice:  I18n.t('messages.updated_with', item: @admin.email)
+			AdminMailer.update_admin(current_admin , @admin).deliver_now
 		else
 			render :edit
 		end
