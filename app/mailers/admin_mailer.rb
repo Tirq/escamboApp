@@ -6,4 +6,11 @@ class AdminMailer < ApplicationMailer
 		mail(to: @admin.email, subject: "Alteração de cadastro")
 	end
 
+	Message = Struct.new(:recipient, :subject , :message , :current_user)
+
+	def send_message(msg)
+		@msg = msg
+		mail(to: msg.recipient, subject: msg.subject)
+	end
+
 end
