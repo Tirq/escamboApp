@@ -1,0 +1,37 @@
+<div class="modal fade" id="sendMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modalLabel"></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <%= form_tag backoffice_send_message_index_path , remote:true do %>
+        <div class="form-group">
+          <%= label_tag 'recipient', 'E-mail', class:'col-form-label' %>
+          <%= text_field_tag :'recipient', nil, class:"form-control", readonly: "readonly" %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'subject', 'Assunto', class:'col-form-label' %>
+          <%= text_field_tag :'subject', nil, class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag 'message', 'Mensagem', class:'col-form-label' %>
+          <%= text_area_tag :'message', nil, class:"form-control" %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <%= submit_tag :'Enviar', class:"btn btn-primary" %>
+        </div>
+        
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
