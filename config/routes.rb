@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :samples
   namespace :backoffice do
+    resources :send_message, only: [:edit, :create]
     resources :categories, except: [:destroy , :show]
     resources :admins, except: [:show]
     get 'dashboard' ,to: 'dashboard#index'

@@ -1,0 +1,21 @@
+$(function(){// verifica se página está carregada por completo 
+	openModal();	
+});
+
+function openModal(){
+	let modal = '#sendMessageModal'; 
+	$(modal).modal();
+		setModalValues('<%= @admin.email %>', "<%= t('messages.send_message_to', name: @admin.name) %>");
+	$(modal).on('shown.bs.modal', function () {
+  		$('#subject').trigger('focus');
+	})
+
+}
+
+
+function setModalValues(recipient , title){
+	$('#subject').val('');
+	$('#message').val('');
+	$('#recipient').val(recipient);
+	$('#modalLabel').text(title);
+}

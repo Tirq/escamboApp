@@ -18,3 +18,5 @@
     email_not_delivered: Erro ao enviar email. Tente novamente.
     edit: Editar
     remove: Excluir
+    send_message: Enviar mensagem
+    send_message_to: Enviar mensagem para %{name}
