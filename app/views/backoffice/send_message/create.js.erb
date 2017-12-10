@@ -1,0 +1,15 @@
+$(function(){ // verifica se página está carregada por completo 
+	closeModal();	
+	showSuccessMessage();
+});
+
+function closeModal(){
+	let modal = '#sendMessageModal'; 
+	$(modal).modal('hide');
+}
+
+
+
+function showSuccessMessage(){
+	  $("#notices").html("<div class='alert alert-success alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button><%= flash[:notice] %></div>");
+}

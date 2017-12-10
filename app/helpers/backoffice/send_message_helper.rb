@@ -1,0 +1,2 @@
+module Backoffice::SendMessageHelper
+end
