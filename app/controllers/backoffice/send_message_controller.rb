@@ -9,8 +9,17 @@ class Backoffice::SendMessageController < ApplicationController
 	end
 
 	def create
-		AdminMailer.send_message(@msg).deliver_now
-		flash[:notice] = "Mensagem enviada com sucesso!"
+		begin
+			@notice = "Mensagem enviada com sucesso!"
+			@notice_type="success"
+			#raise testar erro ....
+			AdminMailer.send_message(@msg).deliver_now
+		rescue
+			@notice = "Ops...Tivemos um problema enviando mensagem!"
+			@notice_type="danger"
+		end
+		
+		
 	end
 
 private 
