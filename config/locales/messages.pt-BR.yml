@@ -20,3 +20,4 @@
     remove: Excluir
     send_message: Enviar mensagem
     send_message_to: Enviar mensagem para %{name}
+    profile: Perfil

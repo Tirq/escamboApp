@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>EscamboApp</title>
+    
+      <%= stylesheet_link_tag    'application', media: 'all' %>
+      <%= stylesheet_link_tag    'site/profile/profile', media: 'all'  %>
+      <%= stylesheet_link_tag    'site/site', media: 'all'  %>
+      
+      <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <%= render partial: 'layouts/shared_site/header'  %>
+      
+     <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                  <%= link_to "Dashboard",  site_profile_dashboard_index_path   %>
+                </li>
+                <li>
+                    <%= link_to "Meus Anúncios", site_profile_ads_path %>
+                </li>
+                <li>
+                    <%= link_to "Novo Anúncio", new_site_profile_ad_path  %>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <%= yield %>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>   
+                
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site/profile/profile' %>
+    <%= javascript_include_tag 'site/site' %>
+    <%= yield :javascripts %>        
+
+
+    <%= render partial: 'layouts/shared_site/footer'  %>
+  
+    
+  </body>
+
+</html>
+
+
+

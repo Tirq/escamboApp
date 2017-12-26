@@ -28,10 +28,14 @@ gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'enum_help'
 gem 'pundit'
+gem 'money-rails'
+gem "paperclip", "~> 5.0.0"
+gem 'jquery-ui-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '4.0.0.beta'
   gem 'rails-assets-bootbox'
+  gem 'rails-assets-animate-css'
 end
 
 
@@ -48,6 +52,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'awesome_print'
+  gem 'faker' 
 end
 
 group :development do

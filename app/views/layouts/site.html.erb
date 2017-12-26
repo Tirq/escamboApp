@@ -11,16 +11,17 @@
     <title>EscamboApp</title>
     
 	  <%= stylesheet_link_tag    'application', media: 'all' %>
-	  <%= stylesheet_link_tag    'site', media: 'all'  %>
+	  <%= stylesheet_link_tag    'site/site', media: 'all'  %>
 
 	  <%= javascript_include_tag 'application' %>
-	  <%= javascript_include_tag 'site' %>
+	  <%= javascript_include_tag 'site/site' %>
 	  
 	  <%= csrf_meta_tags %>
 
   </head>
 
   <body>
+    <div id="global-spin" class="loading" style="display: none;">Loading&#8230;</div>
     <%= render partial: 'layouts/shared_site/header'  %>
 		<%= yield %>
     <%= render partial: 'layouts/shared_site/footer'  %>
