@@ -12,3 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-pt-BR
+
+
+/* Spin */
+$(document).ready(function() {
+  $(document)
+    .ajaxStart(function () {
+        $('#global-spin').fadeIn('slow');
+    })
+    .ajaxStop(function () {
+        $('#global-spin').fadeOut('slow');
+    });
+});

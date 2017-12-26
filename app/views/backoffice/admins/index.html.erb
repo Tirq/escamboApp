@@ -1,5 +1,5 @@
 <% model= @admins.model_name.human(count: 2) %>
-<%= render partial: 'layouts/shared_backoffice/notifications', :locals => {:title => model}   %>
+<%= render partial: 'layouts/shared/notifications', :locals => {:title => model}   %>
 <%= link_to new_backoffice_admin_path, disabled: !policy(@admins).new? , style: "margin: 5px;", title: 'Novo' ,	class: "btn btn-success pull-right" do %>
 		<i class="fa fa-plus"></i>
 <% end %>

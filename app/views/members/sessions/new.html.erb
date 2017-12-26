@@ -1,26 +1,19 @@
-<h2>! Log in 2 members</h2>
-
+<div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Acessar como Membro</h2>
+        <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email", required:"required"  %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder:"Senha", required:"required" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
+        <% if devise_mapping.rememberable? -%>
+    <div class="checkbox">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
-  <% end -%>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+       
+        <%= f.submit "Entrar", class:"btn btn-lg btn-primary btn-block" %>
+      <% end %>
+    </div>
 
-<%= render "members/shared/links" %>

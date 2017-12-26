@@ -22,17 +22,3 @@ categories.each { |c|
 	Category.find_or_create_by( description: c)
 }
 puts "Successful to Create categories!"
-
-
-puts "Creating admin users"
-	Admin.create!(name: "Tiago",
-	 							email: "ti@gmail.com", 
-	 							password: "123456",
-	 							password_confirmation: "123456",
-	 							role: 1)
-	Admin.create!(name: "Gisele",
-	 							email: "gi@gmail.com", 
-	 							password: "123456",
-	 							password_confirmation: "123456",
-	 							role: 0)
-puts "Successful to Create admin user!"

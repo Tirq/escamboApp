@@ -1,0 +1,26 @@
+<%= render partial: 'layouts/shared/notifications', :locals => {:title => 'Meus Anúncios'}   %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Acões</th>
+      <th scope="col">Id</th>
+      <th scope="col">Imagem</th>
+      <th scope="col">Título</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Preço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ads.each do |ad| %>
+      <tr>      
+        <th scope="row"><%= link_to "Editar", edit_site_profile_ad_path(ad), class:"btn btn-sm btn-outline-dark" %></th>
+        <th scope="row"><%= ad.id %></th>
+        <td><%= image_tag ad.image(:thumb) %></td>
+        <td><%= ad.title %></td>
+        <td><%= ad.category.description %></td>
+        <td><%= humanized_money_with_symbol ad.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

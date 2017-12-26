@@ -11,14 +11,18 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resources
-  	if devise_controller? && resource_name == :admin
-  		"backoffice_devise"
-  	else
+  	if devise_controller? 
+      layout_by_devise
+     else 
   		"application"
   	end 
   end
 
   private
+
+  def layout_by_devise
+     resource_name == :admin ? "backoffice_devise" : "site_devise" 
+  end
 
   def user_not_authorized
     flash[:alert] =  I18n.t('messages.not_authorized')
